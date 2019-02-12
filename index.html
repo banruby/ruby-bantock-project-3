@@ -8,9 +8,79 @@
 
     <link rel="stylesheet" href="styles/style.css">
 
+
+    <style>
+        input {
+            display: none;
+        }
+        label {
+            display: block;
+            padding: 20px;
+        }
+
+        button.results {
+            padding: 10px;
+            margin: 25px;
+            background-color: blue;
+            color: white;
+        }
+    </style>
+
 </head>
     <body>
-        <h1>HERE IS SOME CODE!</h1>
+        <h1>LET'S TEST SOME QUESTIONS!</h1>
+
+        <form action="">
+            <fieldset class="question-1">
+                <p>You know the drill ...</p>
+                <label for="answer-1A">Top</label>
+                <input type="radio" name="question-1" id="answer-1A" value="answer-A">
+                <label for="answer-1B">Bottom</label>
+                <input type="radio" name="question-1" id="answer-1B" value="answer-B">
+                <label for="answer-1C">Switch</label>
+                <input type="radio" name="question-1" id="answer-1C" value="answer-C">
+                <label for="answer-1D">???</label>
+                <input type="radio" name="question-1" id="answer-1D" value="answer-D">
+
+                <button type="submit" class="submit-question-1">SUBMIT</button>
+            </fieldset>
+        </form>
+
+        <form action="">
+            <fieldset class="question-2">
+                <p>Favourite color?</p>
+                <label for="answer-2A">Blue</label>
+                <input type="radio" name="question-2" id="answer-2A" value="answer-A">
+                <label for="answer-2B">Red</label>
+                <input type="radio" name="question-2" id="answer-2B" value="answer-B">
+                <label for="answer-2C">Green</label>
+                <input type="radio" name="question-2" id="answer-2C" value="answer-C">
+                <label for="answer-2D">Yellow</label>
+                <input type="radio" name="question-2" id="answer-2D" value="answer-D">
+            
+                <button type="submit" class="submit-question-2">SUBMIT</button>
+            </fieldset>
+        </form>
+
+        <form action="">
+            <fieldset class="question-3">
+                <p>What's your vibe?</p>
+                <label for="answer-3A">Classic & Classy</label>
+                <input type="radio" name="question-3" id="answer-3A" value="answer-A">
+                <label for="answer-3B">Weird & Wild</label>
+                <input type="radio" name="question-3" id="answer-3B" value="answer-B">
+                <label for="answer-3C">Pink & Plastic</label>
+                <input type="radio" name="question-3" id="answer-3C" value="answer-C">
+                <label for="answer-3D">Energetic & Enigmatic</label>
+                <input type="radio" name="question-3" id="answer-3D" value="answer-D">
+        
+                <button type="submit" class="submit-question-3">SUBMIT</button>
+            </fieldset>
+        </form>
+
+        <button class="results">SHOW ME MY RESULTS!</button>
+
+        <div class="results-display"></div>
 
         <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'>
         </script>
