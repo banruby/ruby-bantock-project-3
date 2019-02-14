@@ -17,12 +17,33 @@
             display: block;
             padding: 20px;
         }
-
+        button {
+            padding: 10px;
+        }
         button.results {
             padding: 10px;
             margin: 25px;
             background-color: blue;
             color: white;
+        }
+
+        .coat-of-arms {
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .quadrant {
+            width: 250px;
+            height: 250px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
         }
     </style>
 
@@ -78,9 +99,39 @@
             </fieldset>
         </form>
 
+        <form action="">
+            <fieldset class="question-4">
+                <p>Your honest tombstone might read ...</p>
+                <label for="answer-4A">Kind of a Dick</label>
+                <input type="radio" name="question-4" id="answer-4A" value="answer-A">
+                <label for="answer-4B">Beloved Understudy</label>
+                <input type="radio" name="question-4" id="answer-4B" value="answer-B">
+                <label for="answer-4C">Elusive Artisan</label>
+                <input type="radio" name="question-4" id="answer-4C" value="answer-C">
+                <label for="answer-4D">Jewelry Enthusiast</label>
+                <input type="radio" name="question-4" id="answer-4D" value="answer-D">
+        
+                <button type="submit" class="submit-question-4">SUBMIT</button>
+            </fieldset>
+        </form>
+
         <button class="results">SHOW ME MY RESULTS!</button>
 
         <div class="results-display"></div>
+        <div class="coat-of-arms">
+            <div class="quadrant quadrant-1">
+                <img alt="">
+            </div>
+            <div class="quadrant quadrant-2">
+                <img alt="">
+            </div>
+            <div class="quadrant quadrant-3">
+                <img alt="">
+            </div>
+            <div class="quadrant quadrant-4">
+                <img alt="">
+            </div>
+        </div>
 
         <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'>
         </script>
