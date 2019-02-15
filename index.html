@@ -19,6 +19,7 @@
         }
         button {
             padding: 10px;
+            background-color: red;
         }
         button.results {
             padding: 10px;
@@ -29,16 +30,23 @@
 
         .coat-of-arms {
             width: 500px;
-            height: 500px;
+            height: 650px;
             background-color: blue;
             margin: 50px auto;
             display: flex;
             flex-wrap: wrap;
+            clip-path: polygon(50% 0%, 0% 8%, 0% 50%, 2% 60%, 4% 65%, 6% 70%, 8% 75%, 10% 80%, 12% 85%, 15% 90%, 25% 95%, 
+            
+            50% 100%, 
+            
+            75% 95%, 85% 90%, 88% 85%, 90% 80%, 92% 75%, 94% 70%, 96% 65%, 98% 60%,
+            
+            100% 50%, 100% 8%);
         }
 
         .quadrant {
-            width: 250px;
-            height: 250px;
+            width: 50%;
+            height: 325px;
         }
 
         img {
@@ -49,92 +57,112 @@
 
 </head>
     <body>
-        <h1>LET'S TEST SOME QUESTIONS!</h1>
+        <main>
+            <section class="play-window">
+                
+                <div class="card card-1">
+                    <h1>LET'S TEST SOME QUESTIONS!</h1>
 
-        <form action="">
-            <fieldset class="question-1">
-                <p>You know the drill ...</p>
-                <label for="answer-1A">Top</label>
-                <input type="radio" name="question-1" id="answer-1A" value="answer-A">
-                <label for="answer-1B">Bottom</label>
-                <input type="radio" name="question-1" id="answer-1B" value="answer-B">
-                <label for="answer-1C">Switch</label>
-                <input type="radio" name="question-1" id="answer-1C" value="answer-C">
-                <label for="answer-1D">???</label>
-                <input type="radio" name="question-1" id="answer-1D" value="answer-D">
+                    <button class="next">NEXT</button>
+                </div>
 
-                <button type="submit" class="submit-question-1">SUBMIT</button>
-            </fieldset>
-        </form>
+                <div class="card card-2">
+                    <fieldset class="question-1">
+                        <p>You know the drill ...</p>
+                        <label for="answer-1A">Top</label>
+                        <input type="radio" name="question-1" id="answer-1A" value="answer-A">
+                        <label for="answer-1B">Bottom</label>
+                        <input type="radio" name="question-1" id="answer-1B" value="answer-B">
+                        <label for="answer-1C">Switch</label>
+                        <input type="radio" name="question-1" id="answer-1C" value="answer-C">
+                        <label for="answer-1D">???</label>
+                        <input type="radio" name="question-1" id="answer-1D" value="answer-D">
 
-        <form action="">
-            <fieldset class="question-2">
-                <p>Favourite color?</p>
-                <label for="answer-2A">Blue</label>
-                <input type="radio" name="question-2" id="answer-2A" value="answer-A">
-                <label for="answer-2B">Red</label>
-                <input type="radio" name="question-2" id="answer-2B" value="answer-B">
-                <label for="answer-2C">Green</label>
-                <input type="radio" name="question-2" id="answer-2C" value="answer-C">
-                <label for="answer-2D">Yellow</label>
-                <input type="radio" name="question-2" id="answer-2D" value="answer-D">
-            
-                <button type="submit" class="submit-question-2">SUBMIT</button>
-            </fieldset>
-        </form>
+                        <button type="submit" class="submit-question-1 next">SUBMIT</button>
+                    </fieldset>
+                </div>
 
-        <form action="">
-            <fieldset class="question-3">
-                <p>What's your vibe?</p>
-                <label for="answer-3A">Classic & Classy</label>
-                <input type="radio" name="question-3" id="answer-3A" value="answer-A">
-                <label for="answer-3B">Weird & Wild</label>
-                <input type="radio" name="question-3" id="answer-3B" value="answer-B">
-                <label for="answer-3C">Pink & Plastic</label>
-                <input type="radio" name="question-3" id="answer-3C" value="answer-C">
-                <label for="answer-3D">Energetic & Enigmatic</label>
-                <input type="radio" name="question-3" id="answer-3D" value="answer-D">
-        
-                <button type="submit" class="submit-question-3">SUBMIT</button>
-            </fieldset>
-        </form>
+                <div class="card card-3">
+                    <fieldset class="question-2">
+                        <p>Favourite color?</p>
+                        <label for="answer-2A">Blue</label>
+                        <input type="radio" name="question-2" id="answer-2A" value="answer-A">
+                        <label for="answer-2B">Red</label>
+                        <input type="radio" name="question-2" id="answer-2B" value="answer-B">
+                        <label for="answer-2C">Green</label>
+                        <input type="radio" name="question-2" id="answer-2C" value="answer-C">
+                        <label for="answer-2D">Yellow</label>
+                        <input type="radio" name="question-2" id="answer-2D" value="answer-D">
+                    
+                        <button type="submit" class="submit-question-2 next">SUBMIT</button>
+                    </fieldset>
+                </div>
 
-        <form action="">
-            <fieldset class="question-4">
-                <p>Your honest tombstone might read ...</p>
-                <label for="answer-4A">Kind of a Dick</label>
-                <input type="radio" name="question-4" id="answer-4A" value="answer-A">
-                <label for="answer-4B">Beloved Understudy</label>
-                <input type="radio" name="question-4" id="answer-4B" value="answer-B">
-                <label for="answer-4C">Elusive Artisan</label>
-                <input type="radio" name="question-4" id="answer-4C" value="answer-C">
-                <label for="answer-4D">Jewelry Enthusiast</label>
-                <input type="radio" name="question-4" id="answer-4D" value="answer-D">
-        
-                <button type="submit" class="submit-question-4">SUBMIT</button>
-            </fieldset>
-        </form>
+                <div class="card card-4">
+                    <fieldset class="question-3">
+                        <p>What's your vibe?</p>
+                        <label for="answer-3A">Classic & Classy</label>
+                        <input type="radio" name="question-3" id="answer-3A" value="answer-A">
+                        <label for="answer-3B">Weird & Wild</label>
+                        <input type="radio" name="question-3" id="answer-3B" value="answer-B">
+                        <label for="answer-3C">Pink & Plastic</label>
+                        <input type="radio" name="question-3" id="answer-3C" value="answer-C">
+                        <label for="answer-3D">Energetic & Enigmatic</label>
+                        <input type="radio" name="question-3" id="answer-3D" value="answer-D">
+                
+                        <button type="submit" class="submit-question-3 next">SUBMIT</button>
+                    </fieldset>
+                </div>
 
-        <button class="results">SHOW ME MY RESULTS!</button>
+                <div class="card card-5">
+                    <fieldset class="question-4">
+                        <p>Your honest tombstone might read ...</p>
+                        <label for="answer-4A">Kind of a Dick</label>
+                        <input type="radio" name="question-4" id="answer-4A" value="answer-A">
+                        <label for="answer-4B">Beloved Understudy</label>
+                        <input type="radio" name="question-4" id="answer-4B" value="answer-B">
+                        <label for="answer-4C">Elusive Artisan</label>
+                        <input type="radio" name="question-4" id="answer-4C" value="answer-C">
+                        <label for="answer-4D">Jewelry Enthusiast</label>
+                        <input type="radio" name="question-4" id="answer-4D" value="answer-D">
+                
+                        <button type="submit" class="submit-question-4 next">SUBMIT</button>
+                    </fieldset>
+                </div>
 
-        <div class="results-display"></div>
-        <div class="coat-of-arms">
-            <div class="quadrant quadrant-1">
-                <img alt="">
-            </div>
-            <div class="quadrant quadrant-2">
-                <img alt="">
-            </div>
-            <div class="quadrant quadrant-3">
-                <img alt="">
-            </div>
-            <div class="quadrant quadrant-4">
-                <img alt="">
-            </div>
-        </div>
+                <div class="card card-6">
+                    <button class="results next">SHOW ME MY RESULTS!</button>
+                </div>
 
+                <div class="card card-7">
+                    <div class="results-display"></div>
+                    <div class="coat-of-arms">
+                        <div class="quadrant quadrant-1">
+                            <img alt="">
+                        </div>
+                        <div class="quadrant quadrant-2">
+                            <img alt="">
+                        </div>
+                        <div class="quadrant quadrant-3">
+                            <img alt="">
+                        </div>
+                        <div class="quadrant quadrant-4">
+                            <img alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- JQUERY -->
         <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'>
         </script>
+
+        <!-- JQUERY UI -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+        <!-- CUSTOM SCRIPTS -->
         <script src="scripts/script.js"></script>
     </body>
 </html>
