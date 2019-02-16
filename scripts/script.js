@@ -1,11 +1,263 @@
 
 const myApp = {};
 
+// value to move cards on click
+myApp.currentCard = 1;
+
+// to track current question
+myApp.currentQuestion = 1;
+
 // TEMP STYLING ON CLICK
-$("label").on("click", function(){
+$(".card").on("click", "label", function(){
     $("label").removeClass("red");
     $(this).addClass("red");
 })
+
+myApp.questionData = [
+    question1 = [
+        { question: "You know the drill ..."},
+        { answers: [
+            { answer: "Top", 
+              points: [
+                { name: "Gryffindor", points: 5 },
+                { name: "Slytherin", points: 5 },
+                { name: "Ironman", points: 2 }
+              ]  
+            },
+            { answer: "Bottom", points: [
+                { name: "Hufflepuff", points: 5 },
+                { name: "Robin", points: 2 },
+                { name: "Spiderman", points: 2 }
+              ]
+            },
+            { answer: "Switch", points: [ 
+                { name: "Ravenclaw", points: 5 },
+                { name: "WonderWoman", points: 2}
+              ]
+            },
+            { answer: "???", points: [
+                { name: "Hufflepuff", points: 1}
+              ]
+    }]}],
+    question2 = [
+        { question: "Favourite colour?"},
+        { answers: [
+            { answer: "Blue",
+              points: [
+                  { name: "Squirtle", points: 5 },
+                  { name: "Ravenclaw", points: 2 }
+              ] 
+            },
+            { answer: "Red",
+              points: [
+                  { name: "Charmander", points: 5 },
+                  { name: "Gryffindor", points: 2 }
+              ]
+            },
+            { answer: "Green",
+              points: [
+                  { name: "Bulbasaur", points: 5 },
+                  { name: "Slytherin", points: 2 }
+              ]
+            },
+            { answer: "Yellow", 
+              points: [
+                  { name: "Pikachu", points: 5 },
+                  { name: "Hufflepuff", points: 2 }
+              ]    
+    }]}],
+    question3 = [
+        { question: "What's your go-to vibe?"},
+        { answers: [
+            { answer: "Classic & Classy", 
+              points: [
+                  { name: "Latrice", points: 5 }
+              ]
+            },
+            { answer: "Weird & Wild",
+              points: [
+                  { name: "Sasha", points: 5 }
+              ]
+            },
+            { answer: "Pink & Plastic",
+              points: [
+                  { name: "Trixie", points: 5 }
+              ]
+            },
+            { answer: "Energetic & Enigmatic",
+              points: [
+                  { name: "Shangela", points: 5 }
+              ]
+    }]}],
+    question4 = [
+        { question: "Your tombstone might read ..." },
+        { answers: [
+            { answer: "Kind of a Dick", 
+              points: [
+                  { name: "Ironman", points: 5 },
+                  { name: "Charmander", points: 2 }
+              ]
+            },
+            { answer: "Beloved Understudy",
+              points: [
+                  { name: "Robin", points: 5 },
+                  { name: "Bulbasaur", points: 2 }
+              ]
+            },
+            { answer: "Elusive Artisan",
+              points: [
+                  { name: "Spiderman", points: 5 },
+                  { name: "Squirtle", points: 2 }
+              ]
+            },
+            { answer: "Snappy Dresser",
+              points: [
+                  { name: "WonderWoman", points: 5 },
+                  { name: "Pikachu", points: 2 }
+              ]
+    }]}],
+    question5 = [
+        { question: "It's Friday night! You are ..." },
+        { answers: [
+            { answer: "On a sweaty dancefloor!",
+              points: [
+                  { name: "Shangela", points: 5 }
+              ]
+            },
+            { answer: "At an exclusive art opening!",
+              points: [
+                  { name: "Sasha", points: 5 }
+              ]
+            },
+            { answer: "Playing video games!",
+              points: [
+                  { name: "Trixie", points: 5 }
+              ]
+            },
+            { answer: "Asleep by 9:00PM!",
+              points: [
+                  { name: "Latrice", points: 5 }
+              ]    
+    }]}],
+    question6 = [
+        { question: "You find a $100 bill on the ground. You ..."},
+        { answers: [
+            { answer: "Stuff the cash in your pocket and walk away quickly!",
+              points: [
+                { name: "Slytherin", points: 5 },
+                { name: "Trixie", points: 2 }
+              ]
+            },
+            { answer: "Buy a round of drinks for all your friends!",
+              points: [
+                { name: "Gryffindor", points: 5 },
+                { name: "Shangela", points: 2 }
+              ]
+            },
+            { answer: "Put it in your savings account for safe keeping!",
+              points: [
+                { name: "Ravenclaw", points: 5 },
+                { name: "Latrice", points: 2 }
+              ]
+            },
+            { answer: "Find it's owner and return the cash!",
+              points: [
+                { name: "Hufflepuff", points: 5 },
+                { name: "Sasha", points: 2 }
+              ]
+    }]}],
+    question7 = [
+        { question: "You most aspire to ..." },
+        { answers: [
+            { answer: "Solve the energy crisis",
+              points: [
+                  { name: "Pikachu", points: 5 }
+              ]
+            },
+            { answer: "End world hunger",
+              points: [
+                  { name: "Charmander", points: 5 }
+              ]
+            },
+            { answer: "Refreeze the polar ice caps",
+              points: [
+                  { name: "Squirtle", points: 5 }
+              ]
+            },
+            { answer: "Reduce greenhouse gas emissions",
+              points: [
+                  { name: "Bulbasaur", points: 5 }
+              ]
+    }]}],
+    question8 = [
+        { question: "You're trapped on a deserted island. You ..." },
+        { answers: [
+            { answer: "Use your satellite phone to call in a chopper.",
+              points: [
+                  { name: "Ironman", points: 5 }
+              ]
+            },
+            { answer: "Start a new matriarchal society",
+              points: [
+                  { name: "WonderWoman", points: 5 }
+              ]
+            },
+            { answer: "Build an elaborate shelter",
+              points: [
+                  { name: "Spiderman", points: 5 }
+              ]
+            },
+            { answer: "Cry",
+              points: [
+                  { name: "Robin", points: 5 }
+              ]
+
+    }]}],
+]
+
+myApp.displayQuestion = () => {
+    
+    // using an existing variable to get the index value of the questions
+    myApp.questionIndex = 0;
+
+    myApp.answerA = myApp.questionData[myApp.questionIndex][1].answers[0].answer;
+    myApp.answerB = myApp.questionData[myApp.questionIndex][1].answers[1].answer; 
+    myApp.answerC = myApp.questionData[myApp.questionIndex][1].answers[2].answer;
+    myApp.answerD = myApp.questionData[myApp.questionIndex][1].answers[3].answer;
+
+    $(`.card`).empty();
+
+    if (myApp.questionIndex < 8) {
+        $(`.card`).html(`
+    
+            <fieldset class="question-${myApp.currentQuestion}">
+                <p>${myApp.questionData[myApp.questionIndex][0].question}</p>
+    
+                <label for="answer-${myApp.currentQuestion}A">${myApp.answerA}</label>
+                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}A" value="answer-A">
+    
+                <label for="answer-${myApp.currentQuestion}B">${myApp.answerB}</label>
+                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}B" value="answer-B">
+    
+                <label for="answer-${myApp.currentQuestion}C">${myApp.answerC}</label>
+                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}C" value="answer-C">
+    
+                <label for="answer-${myApp.currentQuestion}D">${myApp.answerD}</label>
+                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}D" value="answer-D">
+    
+                <button type="submit" class="submit-question-${myApp.currentQuestion} next">SUBMIT</button>
+            </fieldset>
+            `)
+
+        myApp.questionIndex = myApp.questionIndex + 1;
+    } else {
+        myApp.displayResults();
+    }
+
+        console.log(myApp.questionIndex);
+        myApp.currentQuestion = myApp.currentQuestion + 1;
+}
+
 
 // array for harry potter data
 myApp.hPArray = [
@@ -39,34 +291,32 @@ myApp.dragArray = [
     { name: "Shangela", points: 0 }
     ];
 
-// value to move cards on click
-myApp.currentCard = 1;
-
 // QUESTION 1
 myApp.listenerQ1 = () => {
-    $(".submit-question-1").one("click", function(event){
+    $("fieldset").on("click", ".submit-question-1", function(event){
         event.preventDefault();
-        const $userAnswer1 = $("input[name=question-1]:checked").val();
-        if ($userAnswer1 === "answer-A") {
+        console.log("Listener #1!")
+        myApp.$userAnswer1 = $("input[name=question-1]:checked").val();
+        if (myApp.$userAnswer1 === "answer-A") {
             myApp.hPArray[0].points = myApp.hPArray[0].points + 5;
             // ^ Gryffindor
             myApp.hPArray[2].points = myApp.hPArray[2].points + 5;
             // ^ Slytherin
             myApp.heroArray[3].points = myApp.heroArray[3]. points + 1;
             // ^ Ironman
-        } else if ($userAnswer1 === "answer-B") {
+        } else if (myApp.$userAnswer1 === "answer-B") {
             myApp.hPArray[3].points = myApp.hPArray[3].points + 5;
             // ^ Hufflepuff
             myApp.heroArray[2].points = myApp.heroArray[2].points + 1;
             // ^ Robin
             myApp.heroArray[0].points = myApp.heroArray[0].points + 1;
             // ^ Spider-Man
-        } else if ($userAnswer1 === "answer-C") {
+        } else if (myApp.$userAnswer1 === "answer-C") {
             myApp.hPArray[1].points = myApp.hPArray[1].points + 5;
             // ^ Ravenclaw
             myApp.heroArray[2].points = myApp.heroArray[2].points + 1;
             // ^ Wonder Woman
-        } else if ($userAnswer1 === "answer-D") {
+        } else if (myApp.$userAnswer1 === "answer-D") {
             myApp.hPArray[3].points = myApp.hPArray[3].points + 1;
             // ^ Hufflepuff
         }
@@ -152,8 +402,7 @@ myApp.arraySort = (array) => {
 }
 
 // event listener on results button
-myApp.listenerResults = () => {
-    $("button.results").one("click", function(){
+myApp.displayResults = () => {
         myApp.arraySort(myApp.hPArray);
         myApp.arraySort(myApp.pokeArray);
         myApp.arraySort(myApp.heroArray);
@@ -168,7 +417,7 @@ myApp.listenerResults = () => {
         myApp.insertImagePoke();
         myApp.insertImageHero();
         myApp.insertImageDrag();
-    })
+
 }
 
 myApp.insertImageHP = () => {
@@ -210,7 +459,6 @@ myApp.init = () => {
     myApp.listenerQ3();
     myApp.listenerQ4();
     myApp.nextCard();
-    myApp.listenerResults();
 }
 
 // doc ready (only holds init function)
@@ -225,11 +473,12 @@ $(function () {
 
 
 
+
 myApp.nextCard = () => {
-    $("button.next").click(() => {
-        console.log("CLICK")
+    $(".card").on("click", "button.next", () => {
         $(`.card-${myApp.currentCard}`).slideToggle(500);
         myApp.currentCard = myApp.currentCard + 1;
-        $(`.card-${myApp.currentCard}`).delay(500).slideDown(500);
+        $(`.card-${myApp.currentCard}`).delay(500).slideDown(500).delay(1000);
+        myApp.displayQuestion();
     })
 }
