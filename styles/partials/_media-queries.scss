@@ -1,0 +1,106 @@
+@media only screen and (max-width: 1050px) {
+    h1 {
+        width: 650px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    fieldset label {
+        padding: 50px 0;
+        @include font-size(20);
+    }
+    .label-container {
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .play-window {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    h1 {
+        width: 500px;
+        @include font-size(50);
+    }
+    h3 {
+        @include font-size(18);
+    }
+    div.intro p {
+        @include font-size(25);
+        line-height: 1.5;
+    }
+    div.coat-of-arms-container {
+        width: 400px;
+        min-height: 520px;
+    }
+    .coat-of-arms {
+        width: 380px;
+        height: 500px;
+    }
+    .quadrant {
+        height: 50%;
+    }
+    div.question-container {
+        width: 95%;
+        padding: 20px 0;
+        margin: 0 2.5%;
+    }
+    fieldset {
+        padding: 20px 10px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .play-window {
+        width: 100%;
+    }
+    fieldset h2 {
+        @include font-size(30);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .label-container {
+        width: calc(100% - 40px);
+        height: 100px;
+        margin: 10px 20px;
+    }
+    h1 {
+        width: 90%;
+        margin: 0 5%;
+        text-align: center;
+    }
+    main {
+        padding: 50px 15px;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    div.coat-of-arms-container {
+        width: 350px;
+        min-height: 470px;
+    }
+
+    .coat-of-arms {
+        width: 330px;
+        height: 450px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    div.coat-of-arms-container {
+        width: 300px;
+        min-height: 390px;
+    }
+
+    .coat-of-arms {
+        width: 280px;
+        height: 370px;
+    }
+    main {
+        padding: 30px 5px;
+    }
+}

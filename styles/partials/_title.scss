@@ -1,7 +1,8 @@
 h1 {
     font-family: $accent-font;
     color: $dark;
-    padding: 25px 0;
+    padding: 0;
+    padding-bottom: 20px;
     margin: 0;
     @include font-size(70);
     text-align: center;

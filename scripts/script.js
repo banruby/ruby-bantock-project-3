@@ -208,34 +208,34 @@ myApp.questionData = [
 
 // array for harry potter data
 myApp.hPArray = [
-    { name: "Gryffindor", points: 0 },
-    { name: "Ravenclaw", points: 0 },
-    { name: "Slytherin", points: 0 },
-    { name: "Hufflepuff", points: 0}
+    { name: "Gryffindor", points: 0, alt: "The Gryffindor crest. It features a shield with a golden lion." },
+    { name: "Ravenclaw", points: 0, alt: "The Ravenclaw crest. It features a shield with a raven in the centre." },
+    { name: "Slytherin", points: 0, alt: "The Slytherin crest. It features a shield with a green snake at the centre." },
+    { name: "Hufflepuff", points: 0, alt: "The Hufflepuff crest. It features a shield with a badger at the center."}
     ];
     
 // array for pokemon data
 myApp.pokeArray = [
-    { name: "Bulbasaur", points: 0 },
-    { name: "Charmander", points: 0 },
-    { name: "Squirtle", points: 0 },
-    { name: "Pikachu", points: 0 }
+    { name: "Bulbasaur", points: 0, alt: "The Pokemon Bulbasaur smiling against a white background." },
+    { name: "Charmander", points: 0, alt: "The Pokemon Charmander jumping in the air against a firey background." },
+    { name: "Squirtle", points: 0, alt: "The Pokemon Squirtle jumping in the air against a swampy green background." },
+    { name: "Pikachu", points: 0, alt: "The Pokemon Pikachu smiling and jumping in the air against a white background. It's ears are askew." }
 ];
 
 // array for superherdiv
 myApp.heroArray = [
-    { name: "Spiderman", points: 0 },
-    { name: "WonderWoman", points: 0 },
-    { name: "Robin", points: 0 },
-    { name: "Ironman", points: 0 }
+    { name: "Spiderman", points: 0, alt: "A cartoon of Spiderman sitting on top of a traffic light. He is gesturing forwards." },
+    { name: "WonderWoman", points: 0, alt: "A cartoon of Wonder Woman. Bullets are bouncing off her bracelets." },
+    { name: "Robin", points: 0, alt: "A cartoon of Robin, Batman's protege. He is standing against the night sky looking intense." },
+    { name: "Ironman", points: 0, alt: "A cartoon of the superhero Ironman. He is wearing his metal suit." }
 ];
 
 // array for dragqueen data
 myApp.dragArray = [
-    { name: "Trixie", points: 0 },
-    { name: "Sasha", points: 0 },
-    { name: "Latrice", points: 0 },
-    { name: "Shangela", points: 0 }
+    { name: "Trixie", points: 0, alt: "Trixie Mattel wearing a pink wig with large pink lips and black eye shadow. She is also wearing a bejewelled pink dress and long white everning gloves." },
+    { name: "Sasha", points: 0, alt: "Sasha Velour wearing a clown hat with a large red pompom on top. She's also wearing a feathered collar with long red gloves." },
+    { name: "Latrice", points: 0, alt: "Latrice Royale wearing a large bejewelled necklace with a large blond wig piled on top of her head in a beehive style updo." },
+    { name: "Shangela", points: 0, alt: "Shangela is smiling in front of a turquoise bakcground wearing a blue skirt and crop top. Her skirt says 'Halleloo' in large black text."}
 ];
 
 myApp.calculate = (pointTracker) => {
@@ -265,8 +265,7 @@ myApp.displayResults = () => {
     myApp.insertImageHP();
     myApp.insertImagePoke();
     myApp.insertImageHero();
-    myApp.insertImageDrag();
-    
+    myApp.insertImageDrag();  
 }
 
 myApp.arraySort = (array) => {
@@ -277,7 +276,7 @@ myApp.arraySort = (array) => {
 }
 
 myApp.insertImageHP = () => {
-    $(".quadrant-1 img").attr("src", `assets/${myApp.hPArray[0].name}.jpg`)
+    $(".quadrant-1 img").attr("src", `assets/${myApp.hPArray[0].name}.jpg`);$(".quadrant-1 img").attr("alt", `${myApp.hPArray[0].alt}`);
 }
 
 myApp.insertImagePoke = () => {
@@ -286,6 +285,7 @@ myApp.insertImagePoke = () => {
    } else {
        $(".quadrant-2 img").attr("src", `assets/${myApp.pokeArray[0].name}.png`)
    }
+    $(".quadrant-2 img").attr("alt", `${myApp.pokeArray[0].alt}`);
 }
 
 myApp.insertImageHero = () => {
@@ -298,6 +298,7 @@ myApp.insertImageHero = () => {
     } else if (myApp.heroArray[0].name === "Ironman") {
         $(".quadrant-3 img").attr("src", "assets/ironman.jpg");
     }
+    $(".quadrant-3 img").attr("alt", `${myApp.heroArray[0].alt}`);
 }
 
 myApp.insertImageDrag = () => {
@@ -310,6 +311,7 @@ myApp.insertImageDrag = () => {
     } else if (myApp.dragArray[0].name === "Shangela") {
         $(".quadrant-4 img").attr("src", "assets/shangela.jpg");
     }
+    $(".quadrant-4 img").attr("alt", `${myApp.dragArray[0].alt}`);
 }
 
 myApp.labelListener = () => {
