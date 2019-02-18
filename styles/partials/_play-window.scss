@@ -1,12 +1,14 @@
-section.play-window {
+.play-window {
     max-width: 850px;
     width: calc(100vw - 200px);
-    height: calc(100vh - 250px);
+    min-height: calc(100vh - 275px);
     background: url(../assets/parchment.jpg) no-repeat center;
     background-size: cover;
     border: 10px solid $parchment;
     position: relative;
 }
+
+
 
 .card {
     position: absolute;
@@ -19,6 +21,8 @@ section.play-window {
     justify-content: center;
     align-items: center;
 }
+
+
 
 div.intro {
     width: 65%;

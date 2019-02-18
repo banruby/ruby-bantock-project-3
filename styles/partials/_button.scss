@@ -30,3 +30,9 @@ button.results {
     background-color: blue;
     color: white;
 }
+
+button.label-container {
+    &:focus-within {
+        border: 10px solid $light;
+    }
+}

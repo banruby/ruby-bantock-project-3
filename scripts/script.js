@@ -4,12 +4,6 @@ const myApp = {};
 // value to move cards on click
 myApp.currentQuestion = 1;
 
-// TEMP STYLING ON CLICK
-$(".card").on("click", "label", function(){
-    $(".label-container").removeClass("div-checked");
-    $(this).parent(".label-container").addClass("div-checked");
-})
-
 myApp.questionData = [
     question1 = [
         { question: "You know the drill ..."},
@@ -228,7 +222,7 @@ myApp.pokeArray = [
     { name: "Pikachu", points: 0 }
 ];
 
-// array for superhero data
+// array for superherdiv
 myApp.heroArray = [
     { name: "Spiderman", points: 0 },
     { name: "WonderWoman", points: 0 },
@@ -265,7 +259,7 @@ myApp.displayResults = () => {
     
     $(".results-display").append(`
     <h2>Your Gay Nerd Coat of Arms:</h2>
-    <h3>${myApp.hPArray[0].name}, ${myApp.pokeArray[0].name}, ${myApp.dragArray[0].name}, ${myApp.heroArray[0].name}</h3>
+    <h3>${myApp.hPArray[0].name}, ${myApp.pokeArray[0].name}, ${myApp.heroArray[0].name}, and ${myApp.dragArray[0].name}</h3>
     `);
     
     myApp.insertImageHP();
@@ -287,7 +281,11 @@ myApp.insertImageHP = () => {
 }
 
 myApp.insertImagePoke = () => {
-    $(".quadrant-2 img").attr("src", `assets/${myApp.pokeArray[0].name}.png`)
+   if (myApp.pokeArray[0].name === "Pikachu") {
+       $(".quadrant-2 img").attr("src", `assets/${myApp.pokeArray[0].name}.jpg`);
+   } else {
+       $(".quadrant-2 img").attr("src", `assets/${myApp.pokeArray[0].name}.png`)
+   }
 }
 
 myApp.insertImageHero = () => {
@@ -312,6 +310,13 @@ myApp.insertImageDrag = () => {
     } else if (myApp.dragArray[0].name === "Shangela") {
         $(".quadrant-4 img").attr("src", "assets/shangela.jpg");
     }
+}
+
+myApp.labelListener = () => {
+    $(".card").on("click", "label", function() {
+        $(".label-container").removeClass("div-checked");
+        $(this).parent(".label-container").addClass("div-checked");
+    })
 }
 
 // shows next question by inserting html
@@ -355,20 +360,27 @@ myApp.displayQuestion = () => {
             `);
 
     } else if (myApp.currentQuestion >= 9) {
+        $("section.title").addClass("disappear");
+        $(".play-window").addClass("final-card");
+        $("main").addClass("final-position");
+        $(".card").addClass("card-update");
+        
         $(".card").html(`
             <div class="results-display"></div>
-            <div class="coat-of-arms">
-                <div class="quadrant quadrant-1">
-                    <img alt="">
-                </div>
-                <div class="quadrant quadrant-2">
-                    <img alt="">
-                </div>
-                <div class="quadrant quadrant-3">
-                    <img alt="">
-                </div>
-                <div class="quadrant quadrant-4">
-                    <img alt="">
+            <div class="coat-of-arms-container">
+                <div class="coat-of-arms">
+                    <div class="quadrant quadrant-1">
+                        <img alt="">
+                    </div>
+                    <div class="quadrant quadrant-2">
+                        <img alt="">
+                    </div>
+                    <div class="quadrant quadrant-3">
+                        <img alt="">
+                    </div>
+                    <div class="quadrant quadrant-4">
+                        <img alt="">
+                    </div>
                 </div>
             </div>
         `)
@@ -449,6 +461,7 @@ myApp.launch = () => {
 myApp.init = () => {
     myApp.launch();
     myApp.next();
+    myApp.labelListener();
 }
 
 // doc ready (only holds init function)

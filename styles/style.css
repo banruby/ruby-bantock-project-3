@@ -149,9 +149,6 @@ html {
   font-size: 125%;
   font-family: "IM Fell DW Pica SC", serif; }
 
-.red {
-  color: red; }
-
 img {
   display: block;
   width: 100%; }
@@ -198,6 +195,9 @@ button.results {
   background-color: blue;
   color: white; }
 
+button.label-container:focus-within {
+  border: 10px solid #efefef; }
+
 h1 {
   font-family: "UnifrakturCook", cursive;
   color: #070707;
@@ -217,10 +217,13 @@ h3 {
   text-transform: uppercase;
   color: #070707; }
 
-section.play-window {
+.disappear {
+  display: none; }
+
+.play-window {
   max-width: 850px;
   width: calc(100vw - 200px);
-  height: calc(100vh - 250px);
+  min-height: calc(100vh - 275px);
   background: url(../assets/parchment.jpg) no-repeat center;
   background-size: cover;
   border: 10px solid #ffe1a8;
@@ -271,7 +274,7 @@ div.question-container {
 
 .label-container {
   width: calc(50% - 40px);
-  height: 100px;
+  height: 125px;
   background-color: #ffe1a8;
   margin: 20px;
   padding: 10px;
@@ -322,8 +325,16 @@ fieldset {
     text-align: center;
     width: 100%;
     overflow: hidden;
-    padding: 40px 0;
-    color: #070707; }
+    padding: 60px 0;
+    color: #070707;
+    z-index: 10; }
+  fieldset a {
+    text-decoration: none;
+    width: 100%; }
+    fieldset a:focus {
+      color: red; }
+    fieldset a:focus-within {
+      color: red; }
 
 .label-checked {
   color: #FFD6DD; }
@@ -333,10 +344,9 @@ fieldset {
   border: 2px solid #efefef; }
 
 .coat-of-arms {
-  width: 500px;
-  height: 650px;
+  width: 450px;
+  height: 600px;
   background-color: blue;
-  margin: 50px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -345,6 +355,52 @@ fieldset {
   -webkit-clip-path: polygon(50% 0%, 0% 8%, 0% 50%, 2% 60%, 4% 65%, 6% 70%, 8% 75%, 10% 80%, 12% 85%, 15% 90%, 25% 95%, 50% 100%, 75% 95%, 85% 90%, 88% 85%, 90% 80%, 92% 75%, 94% 70%, 96% 65%, 98% 60%, 100% 50%, 100% 8%);
   clip-path: polygon(50% 0%, 0% 8%, 0% 50%, 2% 60%, 4% 65%, 6% 70%, 8% 75%, 10% 80%, 12% 85%, 15% 90%, 25% 95%, 50% 100%, 75% 95%, 85% 90%, 88% 85%, 90% 80%, 92% 75%, 94% 70%, 96% 65%, 98% 60%, 100% 50%, 100% 8%); }
 
+.coat-of-arms-container {
+  width: 470px;
+  min-height: 620px;
+  background-color: #FFD6DD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-clip-path: polygon(50% 0%, 0% 8%, 0% 50%, 2% 60%, 4% 65%, 6% 70%, 8% 75%, 10% 80%, 12% 85%, 15% 90%, 25% 95%, 50% 100%, 75% 95%, 85% 90%, 88% 85%, 90% 80%, 92% 75%, 94% 70%, 96% 65%, 98% 60%, 100% 50%, 100% 8%);
+  clip-path: polygon(50% 0%, 0% 8%, 0% 50%, 2% 60%, 4% 65%, 6% 70%, 8% 75%, 10% 80%, 12% 85%, 15% 90%, 25% 95%, 50% 100%, 75% 95%, 85% 90%, 88% 85%, 90% 80%, 92% 75%, 94% 70%, 96% 65%, 98% 60%, 100% 50%, 100% 8%); }
+
 .quadrant {
   width: 50%;
-  height: 325px; }
+  height: 300px;
+  position: relative; }
+  .quadrant img {
+    min-width: 100%;
+    -o-object-fit: fill;
+    object-fit: fill;
+    height: 100%; }
+
+.final-card {
+  width: calc(100vw - 200px);
+  min-height: calc(100vh - 200px);
+  height: auto;
+  max-width: auto; }
+
+.card-update {
+  position: static;
+  padding: 25px; }
+
+.final-position {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.results-display h2 {
+  text-align: center;
+  font-family: "UnifrakturCook", cursive;
+  font-size: 40px;
+  font-size: 2rem; }
+
+.results-display h3 {
+  text-align: center; }
