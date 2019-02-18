@@ -190,6 +190,9 @@ button.launch {
     background-color: #FFD6DD;
     border: 5px solid #070707; }
 
+button.next {
+  margin: 25px auto; }
+
 button.results {
   margin: 25px;
   background-color: blue;
@@ -262,6 +265,7 @@ div.intro {
 
 div.question-container {
   width: 90%;
+  margin: 0 5%;
   background-color: rgba(239, 239, 239, 0.3);
   display: -webkit-box;
   display: -ms-flexbox;
