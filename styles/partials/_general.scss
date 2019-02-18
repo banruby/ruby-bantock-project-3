@@ -1,30 +1,24 @@
 html {
     font-size: 125%;
-}
-
-h1 {
-    color: dodgerblue;
+    font-family: $base-font;
 }
 
 .red {
     color: red;
 }
 
+img {
+    display: block;
+    width: 100%;
+}
+
 main {
     min-width: 100vw;
     min-height: 100vh;
-    height: auto;
-    background-color: lightblue;
+    background: $light-accent-opacity;
     padding: 1px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-}
-
-.card {
-    display: none;
-}
-
-.card-1 {
-    display: block;
+    padding: 25px;
 }

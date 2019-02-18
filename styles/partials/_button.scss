@@ -1,0 +1,32 @@
+button {
+    padding: 20px;
+    border: none;
+}
+
+button.launch {
+    background-color: $light-opacity;
+    color: $dark;
+    text-transform: uppercase;
+    height: 150px;
+    width: 250px;
+    @include font-size(25);
+    border: 5px solid $light;
+    border-radius: 10px;
+    &:hover {
+        background-color: $light-accent-opacity;
+    }
+    &:focus {
+        background-color: $light-accent;
+        border: 5px solid $dark;
+    }
+}
+
+button.next {
+
+}
+
+button.results {
+    margin: 25px;
+    background-color: blue;
+    color: white;
+}

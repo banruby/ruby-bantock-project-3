@@ -2,15 +2,12 @@
 const myApp = {};
 
 // value to move cards on click
-myApp.currentCard = 1;
-
-// to track current question
 myApp.currentQuestion = 1;
 
 // TEMP STYLING ON CLICK
 $(".card").on("click", "label", function(){
-    $("label").removeClass("red");
-    $(this).addClass("red");
+    $(".label-container").removeClass("div-checked");
+    $(this).parent(".label-container").addClass("div-checked");
 })
 
 myApp.questionData = [
@@ -26,8 +23,8 @@ myApp.questionData = [
             },
             { answer: "Bottom", points: [
                 { name: "Hufflepuff", points: 5 },
-                { name: "Robin", points: 2 },
-                { name: "Spiderman", points: 2 }
+                { name: "Spiderman", points: 2 },
+                { name: "Robin", points: 2 }
               ]
             },
             { answer: "Switch", points: [ 
@@ -36,7 +33,7 @@ myApp.questionData = [
               ]
             },
             { answer: "???", points: [
-                { name: "Hufflepuff", points: 1}
+                { name: "Hufflepuff", points: 2 }
               ]
     }]}],
     question2 = [
@@ -192,7 +189,7 @@ myApp.questionData = [
     question8 = [
         { question: "You're trapped on a deserted island. You ..." },
         { answers: [
-            { answer: "Use your satellite phone to call in a chopper.",
+            { answer: "Use your satellite phone to call in the chopper.",
               points: [
                   { name: "Ironman", points: 5 }
               ]
@@ -215,50 +212,6 @@ myApp.questionData = [
     }]}],
 ]
 
-myApp.displayQuestion = () => {
-    
-    // using an existing variable to get the index value of the questions
-    myApp.questionIndex = 0;
-
-    myApp.answerA = myApp.questionData[myApp.questionIndex][1].answers[0].answer;
-    myApp.answerB = myApp.questionData[myApp.questionIndex][1].answers[1].answer; 
-    myApp.answerC = myApp.questionData[myApp.questionIndex][1].answers[2].answer;
-    myApp.answerD = myApp.questionData[myApp.questionIndex][1].answers[3].answer;
-
-    $(`.card`).empty();
-
-    if (myApp.questionIndex < 8) {
-        $(`.card`).html(`
-    
-            <fieldset class="question-${myApp.currentQuestion}">
-                <p>${myApp.questionData[myApp.questionIndex][0].question}</p>
-    
-                <label for="answer-${myApp.currentQuestion}A">${myApp.answerA}</label>
-                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}A" value="answer-A">
-    
-                <label for="answer-${myApp.currentQuestion}B">${myApp.answerB}</label>
-                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}B" value="answer-B">
-    
-                <label for="answer-${myApp.currentQuestion}C">${myApp.answerC}</label>
-                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}C" value="answer-C">
-    
-                <label for="answer-${myApp.currentQuestion}D">${myApp.answerD}</label>
-                <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}D" value="answer-D">
-    
-                <button type="submit" class="submit-question-${myApp.currentQuestion} next">SUBMIT</button>
-            </fieldset>
-            `)
-
-        myApp.questionIndex = myApp.questionIndex + 1;
-    } else {
-        myApp.displayResults();
-    }
-
-        console.log(myApp.questionIndex);
-        myApp.currentQuestion = myApp.currentQuestion + 1;
-}
-
-
 // array for harry potter data
 myApp.hPArray = [
     { name: "Gryffindor", points: 0 },
@@ -266,157 +219,66 @@ myApp.hPArray = [
     { name: "Slytherin", points: 0 },
     { name: "Hufflepuff", points: 0}
     ];
-
+    
 // array for pokemon data
 myApp.pokeArray = [
     { name: "Bulbasaur", points: 0 },
     { name: "Charmander", points: 0 },
     { name: "Squirtle", points: 0 },
     { name: "Pikachu", points: 0 }
-    ];
+];
 
 // array for superhero data
 myApp.heroArray = [
-    { name: "Spider-Man", points: 0 },
-    { name: "Wonder Woman", points: 0 },
+    { name: "Spiderman", points: 0 },
+    { name: "WonderWoman", points: 0 },
     { name: "Robin", points: 0 },
     { name: "Ironman", points: 0 }
-    ];
+];
 
 // array for dragqueen data
 myApp.dragArray = [
-    { name: "Trixie Mattel", points: 0 },
-    { name: "Sasha Velour", points: 0 },
-    { name: "Latrice Royale", points: 0 },
+    { name: "Trixie", points: 0 },
+    { name: "Sasha", points: 0 },
+    { name: "Latrice", points: 0 },
     { name: "Shangela", points: 0 }
-    ];
+];
 
-// QUESTION 1
-myApp.listenerQ1 = () => {
-    $("fieldset").on("click", ".submit-question-1", function(event){
-        event.preventDefault();
-        console.log("Listener #1!")
-        myApp.$userAnswer1 = $("input[name=question-1]:checked").val();
-        if (myApp.$userAnswer1 === "answer-A") {
-            myApp.hPArray[0].points = myApp.hPArray[0].points + 5;
-            // ^ Gryffindor
-            myApp.hPArray[2].points = myApp.hPArray[2].points + 5;
-            // ^ Slytherin
-            myApp.heroArray[3].points = myApp.heroArray[3]. points + 1;
-            // ^ Ironman
-        } else if (myApp.$userAnswer1 === "answer-B") {
-            myApp.hPArray[3].points = myApp.hPArray[3].points + 5;
-            // ^ Hufflepuff
-            myApp.heroArray[2].points = myApp.heroArray[2].points + 1;
-            // ^ Robin
-            myApp.heroArray[0].points = myApp.heroArray[0].points + 1;
-            // ^ Spider-Man
-        } else if (myApp.$userAnswer1 === "answer-C") {
-            myApp.hPArray[1].points = myApp.hPArray[1].points + 5;
-            // ^ Ravenclaw
-            myApp.heroArray[2].points = myApp.heroArray[2].points + 1;
-            // ^ Wonder Woman
-        } else if (myApp.$userAnswer1 === "answer-D") {
-            myApp.hPArray[3].points = myApp.hPArray[3].points + 1;
-            // ^ Hufflepuff
-        }
+myApp.calculate = (pointTracker) => {
+    myApp.userAnswerPointsArray.forEach((answer) => {
+        let answerName = answer.name;
+        let answerPoints = answer.points;
+        pointTracker.forEach((pointCategory) => {
+            if (answerName === pointCategory.name) {
+                pointCategory.points = pointCategory.points + answerPoints;
+            }
+        });
     });
 };
-
-// QUESTION 2
-myApp.listenerQ2 = () => {
-    $(".submit-question-2").one("click", function(event) {
-        event.preventDefault();
-        const $userAnswer2 = $("input[name=question-2]:checked").val();
-        if ($userAnswer2 === "answer-A") {
-            myApp.pokeArray[2].points = myApp.pokeArray[2].points + 5;
-            // ^ Squirtle
-            myApp.hPArray[1].points = myApp.hPArray[1].points + 1;
-            // ^ Ravenclaw
-        } else if ($userAnswer2 === "answer-B") {
-            myApp.pokeArray[1].points = myApp.pokeArray[1].points + 5;
-            // ^ Charmander
-            myApp.hPArray[0].points = myApp.hPArray[0].points + 1;
-            // ^ Gryffindor
-        } else if ($userAnswer2 === "answer-C") {
-            myApp.pokeArray[0].points = myApp.pokeArray[0].points + 5;
-            // ^ Bulbasaur
-            myApp.hPArray[2].points = myApp.hPArray[2].points + 1;
-            // ^ Slytherin
-        } else if ($userAnswer2 === "answer-D") {
-            myApp.pokeArray[3].points = myApp.pokeArray[3].points + 5;
-            // ^ Pikachu
-            myApp.hPArray[3].points = myApp.hPArray[3].points + 1;
-            // ^ Hufflepuff
-        }
-    });
-};
-
-// QUESTION 3
-myApp.listenerQ3 = () => {
-    $(".submit-question-3").one("click", function (event) {
-        event.preventDefault();
-        const $userAnswer3 = $("input[name=question-3]:checked").val();
-        if ($userAnswer3 === "answer-A") {
-            myApp.dragArray[2].points = myApp.dragArray[2].points + 5;
-            // ^ Latrice Royale
-        } else if ($userAnswer3 === "answer-B") {
-            myApp.dragArray[1].points = myApp.dragArray[1].points + 5;
-            // ^ Sasha Velour
-        } else if ($userAnswer3 === "answer-C") {
-            myApp.dragArray[0].points = myApp.dragArray[0].points + 5;
-            // ^ Trixie Mattel
-        } else if ($userAnswer3 === "answer-D") {
-            myApp.dragArray[3].points = myApp.dragArray[3].points + 5;
-            // ^ Shangela
-        }
-    });
+   
+// calculates and displays results of the quiz
+myApp.displayResults = () => {
+    myApp.arraySort(myApp.hPArray);
+    myApp.arraySort(myApp.pokeArray);
+    myApp.arraySort(myApp.heroArray);
+    myApp.arraySort(myApp.dragArray);
+    
+    $(".results-display").append(`
+    <h2>Your Gay Nerd Coat of Arms:</h2>
+    <h3>${myApp.hPArray[0].name}, ${myApp.pokeArray[0].name}, ${myApp.dragArray[0].name}, ${myApp.heroArray[0].name}</h3>
+    `);
+    
+    myApp.insertImageHP();
+    myApp.insertImagePoke();
+    myApp.insertImageHero();
+    myApp.insertImageDrag();
+    
 }
 
-// QUESTION 4
-myApp.listenerQ4 = () => {
-    $(".submit-question-4").one("click", function (event) {
-        event.preventDefault();
-        const $userAnswer4 = $("input[name=question-4]:checked").val();
-        if ($userAnswer4 === "answer-A") {
-            myApp.heroArray[3].points = myApp.heroArray[3].points + 5;
-            // ^ Ironman
-        } else if ($userAnswer4 === "answer-B") {
-            myApp.heroArray[2].points = myApp.heroArray[2].points + 5;
-            // ^ Robin
-        } else if ($userAnswer4 === "answer-C") {
-            myApp.heroArray[0].points = myApp.heroArray[0].points + 5;
-            // ^ Spiderman
-        } else if ($userAnswer4 === "answer-D") {
-            myApp.heroArray[1].points = myApp.heroArray[1].points + 5;
-            // ^ Wonder Woman
-        }
-    })
-};
-
-// sorts the arrays so the [0] index value matches the highest point value
 myApp.arraySort = (array) => {
-    array.sort(function (aValue, bValue){
+    array.sort(function (aValue, bValue) {
         return aValue.points < bValue.points;
     });
-}
-
-// event listener on results button
-myApp.displayResults = () => {
-        myApp.arraySort(myApp.hPArray);
-        myApp.arraySort(myApp.pokeArray);
-        myApp.arraySort(myApp.heroArray);
-        myApp.arraySort(myApp.dragArray);
-        
-        $(".results-display").append(`
-        <h2>Your Gay Nerd Coat of Arms:</h2>
-        <h3>${myApp.hPArray[0].name}, ${myApp.pokeArray[0].name}, ${myApp.dragArray[0].name}, ${myApp.heroArray[0].name}</h3>
-        `);
-    
-        myApp.insertImageHP();
-        myApp.insertImagePoke();
-        myApp.insertImageHero();
-        myApp.insertImageDrag();
 
 }
 
@@ -429,9 +291,9 @@ myApp.insertImagePoke = () => {
 }
 
 myApp.insertImageHero = () => {
-    if (myApp.heroArray[0].name === "Spider-Man") {
+    if (myApp.heroArray[0].name === "Spiderman") {
         $(".quadrant-3 img").attr("src", "assets/spiderman.png");
-    } else if (myApp.heroArray[0].name === "Wonder Woman") {
+    } else if (myApp.heroArray[0].name === "WonderWoman") {
         $(".quadrant-3 img").attr("src", "assets/wonderwoman.jpg");
     } else if (myApp.heroArray[0].name === "Robin") {
         $(".quadrant-3 img").attr("src", "assets/robin.jpg");
@@ -441,24 +303,152 @@ myApp.insertImageHero = () => {
 }
 
 myApp.insertImageDrag = () => {
-    if (myApp.dragArray[0].name === "Trixie Mattel") {
+    if (myApp.dragArray[0].name === "Trixie") {
         $(".quadrant-4 img").attr("src", "assets/trixie.jpg");
-    } else if (myApp.dragArray[0].name === "Latrice Royale") {
+    } else if (myApp.dragArray[0].name === "Latrice") {
         $(".quadrant-4 img").attr("src", "assets/latrice.jpg");
-    } else if (myApp.dragArray[0].name === "Sasha Velour") {
+    } else if (myApp.dragArray[0].name === "Sasha") {
         $(".quadrant-4 img").attr("src", "assets/sasha.jpg");
     } else if (myApp.dragArray[0].name === "Shangela") {
         $(".quadrant-4 img").attr("src", "assets/shangela.jpg");
     }
 }
 
+// shows next question by inserting html
+myApp.displayQuestion = () => {
+
+    myApp.questionIndex = myApp.currentQuestion - 1;
+    $(".card").empty();
+
+    if (myApp.currentQuestion < 9) {
+
+        myApp.answerA = myApp.questionData[myApp.questionIndex][1].answers[0].answer;
+        myApp.answerB = myApp.questionData[myApp.questionIndex][1].answers[1].answer;
+        myApp.answerC = myApp.questionData[myApp.questionIndex][1].answers[2].answer;
+        myApp.answerD = myApp.questionData[myApp.questionIndex][1].answers[3].answer;
+
+        $(".card").html(`
+            <fieldset class="question-${myApp.currentQuestion}">
+            <h2>${myApp.questionData[myApp.questionIndex][0].question}</h2>
+            
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}A">${myApp.answerA}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}A" value="0">
+                </div>
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}B">${myApp.answerB}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}B" value="1">
+                </div>
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}C">${myApp.answerC}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}C" value="2">
+                </div>
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}D">${myApp.answerD}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}D" value="3">
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-question-${myApp.currentQuestion} next">SUBMIT</button>
+            </fieldset>
+            `);
+
+    } else if (myApp.currentQuestion >= 9) {
+        $(".card").html(`
+            <div class="results-display"></div>
+            <div class="coat-of-arms">
+                <div class="quadrant quadrant-1">
+                    <img alt="">
+                </div>
+                <div class="quadrant quadrant-2">
+                    <img alt="">
+                </div>
+                <div class="quadrant quadrant-3">
+                    <img alt="">
+                </div>
+                <div class="quadrant quadrant-4">
+                    <img alt="">
+                </div>
+            </div>
+        `)
+        myApp.displayResults();
+    }
+
+
+    myApp.currentQuestion = myApp.currentQuestion + 1;
+}
+
+// calculates score based on each value in the quiz
+myApp.addPoints = () => {
+    
+    // gets user answer per question
+    myApp.userAnswer = $(".card input:checked").val();
+    myApp.userAnswer = Number(myApp.userAnswer);
+
+    // gets points array from the answer selected
+    myApp.userAnswerPointsArray = myApp.questionData[myApp.questionIndex][1].answers[myApp.userAnswer].points;
+
+    // adds opoints to the point tracking arrays
+    myApp.calculate(myApp.hPArray);
+    myApp.calculate(myApp.dragArray);
+    myApp.calculate(myApp.heroArray);
+    myApp.calculate(myApp.pokeArray);
+}
+
+// delivers subsequent questions to user
+myApp.next = () => {
+    $(".card").on("click", "button.next", () => {
+        myApp.addPoints();
+        myApp.displayQuestion();
+    })
+}
+
+// delivers first question to user
+myApp.launch = () => {
+    $(".launch").click(() => {
+
+        myApp.questionIndex = myApp.currentQuestion - 1;
+        myApp.answerA = myApp.questionData[myApp.questionIndex][1].answers[0].answer;
+        myApp.answerB = myApp.questionData[myApp.questionIndex][1].answers[1].answer;
+        myApp.answerC = myApp.questionData[myApp.questionIndex][1].answers[2].answer;
+        myApp.answerD = myApp.questionData[myApp.questionIndex][1].answers[3].answer;
+
+        $(".card").html(`
+            <fieldset class="question-${myApp.currentQuestion}">
+            <h2>${myApp.questionData[myApp.questionIndex][0].question}</h2>
+            
+            <div class="question-container">
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}A">${myApp.answerA}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}A" value="0">
+                </div>
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}B">${myApp.answerB}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}B" value="1">
+                </div>
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}C">${myApp.answerC}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}C" value="2">
+                </div>
+                <div class="label-container">
+                    <label for="answer-${myApp.currentQuestion}D">${myApp.answerD}</label>
+                    <input type="radio" name="question-${myApp.currentQuestion}" id="answer-${myApp.currentQuestion}D" value="3">
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-question-${myApp.currentQuestion} next">SUBMIT</button>
+            </fieldset>
+            `);
+
+        myApp.currentQuestion = myApp.currentQuestion + 1;
+    });
+}
+
 // init function (holds everything that needs to be loaded on launch)
 myApp.init = () => {
-    myApp.listenerQ1();
-    myApp.listenerQ2();
-    myApp.listenerQ3();
-    myApp.listenerQ4();
-    myApp.nextCard();
+    myApp.launch();
+    myApp.next();
 }
 
 // doc ready (only holds init function)
@@ -468,17 +458,8 @@ $(function () {
 
 
 
-// OTHER STUFF THAT I'M STILL WORKING ON
 
 
+ 
 
 
-
-myApp.nextCard = () => {
-    $(".card").on("click", "button.next", () => {
-        $(`.card-${myApp.currentCard}`).slideToggle(500);
-        myApp.currentCard = myApp.currentCard + 1;
-        $(`.card-${myApp.currentCard}`).delay(500).slideDown(500).delay(1000);
-        myApp.displayQuestion();
-    })
-}

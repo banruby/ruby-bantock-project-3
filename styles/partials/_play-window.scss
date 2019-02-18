@@ -1,8 +1,33 @@
 section.play-window {
-    max-width: 1000px;
-    width: 75%;
-    max-height: 800px;
-    // min-height: 300px;
-    background-color: gainsboro;
-    border: 10px solid turquoise;
+    max-width: 850px;
+    width: calc(100vw - 200px);
+    height: calc(100vh - 250px);
+    background: url(../assets/parchment.jpg) no-repeat center;
+    background-size: cover;
+    border: 10px solid $parchment;
+    position: relative;
+}
+
+.card {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.intro {
+    width: 65%;
+    background-color: $light-opacity;
+    margin-bottom: 50px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    p {
+        @include font-size(30);
+        text-align: center;
+    }
 }
