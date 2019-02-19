@@ -277,13 +277,13 @@ myApp.arraySort = (array) => {
 
 myApp.insertImageHP = () => {
     if (myApp.hPArray[0].name === "Slytherin") {
-        $(".quadrant-1").attr("src", "assets/slytherin.jpg");
+        $(".quadrant-1 img").attr("src", "assets/slytherin.jpg");
     } else if (myApp.hPArray[0].name === "Gryffindor") {
-        $(".quadrant-1").attr("src", "assets/gryffindor.jpg");
+        $(".quadrant-1 img").attr("src", "assets/gryffindor.jpg");
     } else if (myApp.hPArray[0].name === "Ravenclaw") {
-        $(".quadrant-1").attr("src", "assets/ravenclaw.jpg");
+        $(".quadrant-1 img").attr("src", "assets/ravenclaw.jpg");
     } else if (myApp.hPArray[0].name === "Hufflepuff") {
-        $(".quadrant-1").attr("src", "assets/hufflepuff.jpg");
+        $(".quadrant-1 img").attr("src", "assets/hufflepuff.jpg");
     }
     $(".quadrant-1 img").attr("alt", `${myApp.hPArray[0].alt}`);
 }
