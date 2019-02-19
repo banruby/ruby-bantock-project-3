@@ -276,14 +276,27 @@ myApp.arraySort = (array) => {
 }
 
 myApp.insertImageHP = () => {
-    $(".quadrant-1 img").attr("src", `assets/${myApp.hPArray[0].name}.jpg`);$(".quadrant-1 img").attr("alt", `${myApp.hPArray[0].alt}`);
+    if (myApp.hPArray[0].name === "Slytherin") {
+        $(".quadrant-1").attr("src", "assets/slytherin.jpg");
+    } else if (myApp.hPArray[0].name === "Gryffindor") {
+        $(".quadrant-1").attr("src", "assets/gryffindor.jpg");
+    } else if (myApp.hPArray[0].name === "Ravenclaw") {
+        $(".quadrant-1").attr("src", "assets/ravenclaw.jpg");
+    } else if (myApp.hPArray[0].name === "Hufflepuff") {
+        $(".quadrant-1").attr("src", "assets/hufflepuff.jpg");
+    }
+    $(".quadrant-1 img").attr("alt", `${myApp.hPArray[0].alt}`);
 }
 
 myApp.insertImagePoke = () => {
    if (myApp.pokeArray[0].name === "Pikachu") {
-       $(".quadrant-2 img").attr("src", `assets/${myApp.pokeArray[0].name}.jpg`);
-   } else {
-       $(".quadrant-2 img").attr("src", `assets/${myApp.pokeArray[0].name}.png`)
+       $(".quadrant-2 img").attr("src", "assets/pikachu.jpg");
+   } else if (myApp.pokeArray[0].name === "Bulbasaur") {
+       $(".quadrant-2 img").attr("src", "assets/bulbasaur.png");
+   } else if (myApp.pokeArray[0].name === "Charmander") {
+       $(".quadrant-2 img").attr("src", "assets/charmander.png");
+   } else if (myApp.pokeArray[0].name === "Squirtle") {
+        $(".quadrant-2 img").attr("src", "assets/squirtle.png");
    }
     $(".quadrant-2 img").attr("alt", `${myApp.pokeArray[0].alt}`);
 }
